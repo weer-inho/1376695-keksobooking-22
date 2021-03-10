@@ -43,17 +43,16 @@ const HOUSE_PHOTOS = [
 ]
 
 const createAd = () => {
+  const x = getRandomIntInclusive(35.65, 35.70, 5);
+  const y = getRandomIntInclusive(13.970, 13.980, 5);
+
   return {
     author :{
       avatar: 'img/avatars/user{{0' + getRandomIntInclusive(0, 8, 0) + '}}.png',
     },
     offer :{
       title: getRandomArrayElement(HOUSE_TITLES),
-      address: '{{location.' +
-                getRandomIntInclusive(0,100,0) +
-                '}}, {{location.' +
-                getRandomIntInclusive(0,100,0) +
-                '}}',
+      address: x + ', ' + y,
       price: getRandomIntInclusive(0, 1000000, 0),
       type: getRandomArrayElement(HOUSE_TYPES),
       rooms: getRandomIntInclusive(0,10,0),
@@ -72,7 +71,6 @@ const createAd = () => {
   }
 }
 
-const mainObjectList = new Array(SIMILAR_OBJECT_COUNT).fill(null).map(() => createAd());
-mainObjectList();
+const generateData = (count) => new Array(count).fill(null).map(() => createAd());
 
-export { mainObjectList };
+export { generateData, SIMILAR_OBJECT_COUNT };

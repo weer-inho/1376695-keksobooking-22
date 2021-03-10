@@ -21,4 +21,4 @@ const getRandomLengthArray = (elements) => {
   return elements.slice(0, elements.length - getRandomIntInclusive(0, elements.length, 0))
 }
 
-export {getRandomIntInclusive, getRandomArrayElement, getRandomLengthArray};
+export { getRandomIntInclusive, getRandomArrayElement, getRandomLengthArray };
