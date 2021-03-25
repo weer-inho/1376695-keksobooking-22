@@ -48,6 +48,7 @@ similarElements.forEach((object) => {
   testElement.querySelector('.popup__type').textContent = propertyType[object.offer.type];
   testElement.querySelector('.popup__text--capacity').textContent = object.offer.rooms + ' комнат для ' + object.offer.guests + ' гостей';
   testElement.querySelector('.popup__text--time').textContent = 'Заезд после ' + object.offer.checkin + ' , выезд до ' + object.offer.checkout;
+  testElement.querySelector('.popup__features').textContent = object.offer.features;
   testElement.querySelector('.popup__description').textContent = object.offer.description;
   testElement.querySelector('.popup__avatar').src = object.author.avatar;
 
