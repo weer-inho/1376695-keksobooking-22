@@ -1,3 +1,3 @@
-import {generateData, SIMILAR_OBJECT_COUNT} from './data.js';
+// import {generateData, SIMILAR_OBJECT_COUNT} from './data.js';
+import './generate.js'
 
-generateData(SIMILAR_OBJECT_COUNT);

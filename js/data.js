@@ -1,6 +1,6 @@
 import {getRandomIntInclusive, getRandomArrayElement, getRandomLengthArray} from './util.js'
 
-const SIMILAR_OBJECT_COUNT = 10;
+const SIMILAR_OBJECT_COUNT = 1;
 
 const HOUSE_TITLES = [
   'Девичье гнездышко',
@@ -48,7 +48,7 @@ const createAd = () => {
 
   return {
     author :{
-      avatar: 'img/avatars/user{{0' + getRandomIntInclusive(0, 8, 0) + '}}.png',
+      avatar: 'img/avatars/user0' + getRandomIntInclusive(0, 8, 0) + '.png',
     },
     offer :{
       title: getRandomArrayElement(HOUSE_TITLES),
@@ -56,7 +56,7 @@ const createAd = () => {
       price: getRandomIntInclusive(0, 1000000, 0),
       type: getRandomArrayElement(HOUSE_TYPES),
       rooms: getRandomIntInclusive(0,10,0),
-      guests: getRandomIntInclusive(0, 100,0),
+      guests: getRandomIntInclusive(1, 100,0),
       checkin: getRandomArrayElement(CHECKIN_TIMES),
       checkout: getRandomArrayElement(CHECKOUT_TIMES),
       features: getRandomLengthArray(ROOM_FEATURES),
@@ -71,6 +71,6 @@ const createAd = () => {
   }
 }
 
-const generateData = (count) => new Array(count).fill(null).map(() => createAd());
+const generateData = () => new Array(SIMILAR_OBJECT_COUNT).fill(null).map(() => createAd());
 
 export { generateData, SIMILAR_OBJECT_COUNT };
