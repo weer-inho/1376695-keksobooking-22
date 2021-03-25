@@ -1,3 +1,4 @@
-import {generateData, SIMILAR_OBJECT_COUNT} from './data.js';
-
-generateData(SIMILAR_OBJECT_COUNT);
+import './util.js';
+import './data.js';
+// import './generate.js';
+import './form.js';
