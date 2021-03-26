@@ -13,7 +13,7 @@ const getRandomIntInclusive = (min, max, numberOfDecimalPlaces) => {
 
 // функция получения из массива элемента со случайным индексом
 const getRandomArrayElement = (elements) => {
-  return elements[getRandomIntInclusive(0, elements.length - 1)];
+  return elements[getRandomIntInclusive(0, elements.length - 1, 0)];
 };
 
 // функция получения массива случайной длины из исходного массива
