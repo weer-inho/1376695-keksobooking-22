@@ -1,6 +1,6 @@
 import {getRandomIntInclusive, getRandomArrayElement, getRandomLengthArray} from './util.js'
 
-const SIMILAR_OBJECT_COUNT = 1;
+const SIMILAR_OBJECT_COUNT = 10;
 
 const HOUSE_TITLES = [
   'Девичье гнездышко',
