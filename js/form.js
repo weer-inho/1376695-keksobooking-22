@@ -1,5 +1,4 @@
 const adForm = document.querySelector('.ad-form');
-console.log(adForm.querySelector('#type'));
 
 const elementsForm = {
   type: adForm.querySelector('#type'),
@@ -21,7 +20,7 @@ elementsForm.type.addEventListener('change', () => {
 });
 
 elementsForm.checkin.addEventListener('change', () => {
-  elementsForm.checkout.value = elementsForm.checkin.value;
+  elementsForm.checkout.value = elementsForm.checkin. value;
 });
 
 elementsForm.checkout.addEventListener('change', () => {
