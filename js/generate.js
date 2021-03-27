@@ -1,4 +1,4 @@
-import {generateData} from './data.js';
+// import {generateData} from './data.js';
 
 const propertyType = {
   palace: 'Дворец',
@@ -7,15 +7,11 @@ const propertyType = {
   bungalow: 'Бунгало',
 }
 
-const mapCanvas = document.querySelector('.map__canvas');
+// const mapCanvas = document.querySelector('.map__canvas');
 
-const cardTemplate = document.querySelector('#card')
-  .content
-  .querySelector('.popup');
+const cardTemplate = document.querySelector('#card').content.querySelector('.popup');
 
-const similarElements = generateData();
-
-similarElements.forEach((object) => {
+const renderCard = (object) => {
   const testElement = cardTemplate.cloneNode(true);
   const photoListElement = testElement.querySelector('.popup__photos');
 
@@ -48,7 +44,10 @@ similarElements.forEach((object) => {
     photoListElement.remove();
   }
 
-  mapCanvas.appendChild(testElement);
-});
+  return testElement;
+}
+
+export {renderCard, propertyType};
+
 
 
