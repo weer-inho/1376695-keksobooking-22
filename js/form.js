@@ -1,28 +1,56 @@
-const adForm = document.querySelector('.ad-form');
+const adFormElement = document.querySelector('.ad-form');
 
 const elementsForm = {
-  type: adForm.querySelector('#type'),
-  price: adForm.querySelector('#price'),
-  checkin: adForm.querySelector('#timein'),
-  checkout: adForm.querySelector('#timeout'),
+  typeElement: adFormElement.querySelector('#type'),
+  priceElement: adFormElement.querySelector('#price'),
+  checkinElement: adFormElement.querySelector('#timein'),
+  checkoutElement: adFormElement.querySelector('#timeout'),
 }
 
-const minPrices = {
+const PRICES = {
   bungalow: 0,
   flat: 1000,
   house: 5000,
   palace: 10000,
 }
 
-elementsForm.type.addEventListener('change', () => {
-  elementsForm.price.placeholder = minPrices[elementsForm.type.value];
-  elementsForm.price.min = minPrices[elementsForm.type.value];
-});
 
-elementsForm.checkin.addEventListener('change', () => {
-  elementsForm.checkout.value = elementsForm.checkin. value;
-});
+// тип жилья
+const formTypeChangeHandler = () => {
+  elementsForm.priceElement.placeholder = PRICES[elementsForm.typeElement.value];
+  elementsForm.priceElement.min = PRICES[elementsForm.typeElement.value];
+};
 
-elementsForm.checkout.addEventListener('change', () => {
-  elementsForm.checkin.value = elementsForm.checkout.value;
-});
+function addFormTypeEventListener(){
+  elementsForm.typeElement.addEventListener('change', formTypeChangeHandler);
+}
+
+addFormTypeEventListener();
+
+
+//выезд до
+const formTimeOutChangeHandler = () => {
+  elementsForm.checkinElement.addEventListener('change', () => {
+    elementsForm.checkoutElement.value = elementsForm.checkinElement.value;
+  });
+}
+
+function addFormTimeOutEventListener(){
+  elementsForm.checkinElement.addEventListener('change', formTimeOutChangeHandler);
+}
+
+addFormTimeOutEventListener();
+
+
+// заезд после
+const formTimeInChangeHandler = () => {
+  elementsForm.checkoutElement.addEventListener('change', () => {
+    elementsForm.checkinElement.value = elementsForm.checkoutElement.value;
+  });
+}
+
+function addFormTimeInEventListener(){
+  elementsForm.checkoutElement.addEventListener('change', formTimeInChangeHandler);
+}
+
+addFormTimeInEventListener();
