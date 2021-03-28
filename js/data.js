@@ -65,12 +65,12 @@ const createAd = () => {
     },
 
     location :{
-      x: getRandomIntInclusive(35.65, 35.70, 5),
-      y: getRandomIntInclusive(13.970, 13.980, 5),
+      x: getRandomIntInclusive(35.44501, 35.60240, 5),
+      y: getRandomIntInclusive(139.18854, 139.25500, 5),
     },
   }
 }
 
 const generateData = () => new Array(SIMILAR_OBJECT_COUNT).fill(null).map(() => createAd());
 
-export { generateData, SIMILAR_OBJECT_COUNT };
+export { generateData, createAd, SIMILAR_OBJECT_COUNT };
