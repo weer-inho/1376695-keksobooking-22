@@ -1,5 +1,5 @@
 const adFormElement = document.querySelector('.ad-form');
-const inputTitle = adFormElement.querySelector('#title');
+const inputTitleElement = adFormElement.querySelector('#title');
 
 const MIN_NAME_LENGTH = 30;
 const MAX_NAME_LENGTH = 100;
@@ -9,7 +9,7 @@ const elementsForm = {
   priceElement: adFormElement.querySelector('#price'),
   checkinElement: adFormElement.querySelector('#timein'),
   checkoutElement: adFormElement.querySelector('#timeout'),
-  roomNumber: adFormElement.querySelector('#room_number'),
+  roomNumberElement: adFormElement.querySelector('#room_number'),
   capacityElement: adFormElement.querySelector('#capacity'),
 }
 
@@ -60,26 +60,26 @@ function addFormTimeInEventListener(){
 addFormTimeInEventListener();
 
 //Валидация заголовка объявления
-inputTitle.addEventListener('input', () => {
-  const valueLength = inputTitle.value.length;
+inputTitleElement.addEventListener('input', () => {
+  const valueLength = inputTitleElement.value.length;
 
   if (valueLength < MIN_NAME_LENGTH) {
-    inputTitle.setCustomValidity('Ещё ' + (MIN_NAME_LENGTH - valueLength) +' симв.');
+    inputTitleElement.setCustomValidity('Ещё ' + (MIN_NAME_LENGTH - valueLength) +' симв.');
   } else if (valueLength > MAX_NAME_LENGTH) {
-    inputTitle.setCustomValidity('Удалите лишние ' + (valueLength - MAX_NAME_LENGTH) +' симв.');
+    inputTitleElement.setCustomValidity('Удалите лишние ' + (valueLength - MAX_NAME_LENGTH) +' симв.');
   } else {
-    inputTitle.setCustomValidity('');
+    inputTitleElement.setCustomValidity('');
   }
 
-  inputTitle.reportValidity();
+  inputTitleElement.reportValidity();
 });
 
 // валидация цены за ночь
 elementsForm.priceElement.addEventListener('input', () => {
   const value = elementsForm.priceElement.value;
-  const maxValue = 1000000;
+  const MAX_PRICE = 1000000;
 
-  if (value > maxValue) {
+  if (value > MAX_PRICE) {
     elementsForm.priceElement.setCustomValidity('Значение не может быть больше 1,000,000')
   }
 
@@ -87,8 +87,9 @@ elementsForm.priceElement.addEventListener('input', () => {
 });
 
 // количество комнат и количество мест
-const roomNumber = elementsForm.roomNumber;
+const roomNumber = elementsForm.roomNumberElement;
 const guestNumber = elementsForm.capacityElement;
+
 const noGuests = {
   value: 100,
   text: 'не для гостей',
