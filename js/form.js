@@ -110,26 +110,33 @@ const threeGuests = {
   text: 'для 3 гостей',
 };
 
+const ROOM_VALUE_100 = 100;
+const ROOM_VALUE_1 = 1;
+const ROOM_VALUE_2 = 2;
+const ROOM_VALUE_3 = 3;
+
 const options = {
-  100: [noGuests],
-  1: [oneGuests],
-  2: [twoGuests, oneGuests],
-  3: [threeGuests, twoGuests, oneGuests],
+  [ROOM_VALUE_100]: [noGuests],
+  [ROOM_VALUE_1]: [oneGuests],
+  [ROOM_VALUE_2]: [twoGuests, oneGuests],
+  [ROOM_VALUE_3]: [threeGuests, twoGuests, oneGuests],
 };
 
 const getOptions = function (guests) {
-  for (let i = 0; i < guests.length; i++) {
+  guests.forEach(guest => {
     const option = document.createElement('option');
-    option.value = guests[i].value;
-    option.innerHTML = guests[i].text;
+    option.value = guest.value;
+    option.innerHTML = guest.text;
     guestNumber.appendChild(option);
-  }
+  })
 };
+
+
 
 // зависимость количества комнат от количества мест
 roomNumber.addEventListener('change', function () {
-  const roomNumberValue = roomNumber.value;
-  guestNumber.value = (roomNumberValue === '100') ? '0' : roomNumberValue;
+  const roomNumberValue = Number(roomNumber.value);
+  guestNumber.value = (roomNumberValue === ROOM_VALUE_100) ? '0' : roomNumberValue;
 
   while (guestNumber.firstChild) {
     guestNumber.removeChild(guestNumber.firstChild);
